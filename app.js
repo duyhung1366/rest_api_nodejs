@@ -21,16 +21,16 @@ app.get('/', (req, res) => {
 })
 
 // connect to DB
-const username = encodeURIComponent(process.env.DB_USER);
-const password = encodeURIComponent(process.env.DB_PASSWORD);
-const cluster = encodeURIComponent(process.env.Cluster); 
+const username = encodeURIComponent(process.env.DB_USER || 'duyhung');
+const password = encodeURIComponent(process.env.DB_PASSWORD || 'hung6789');
+const cluster = encodeURIComponent(process.env.CLUSTER || 'duyhungclu'); 
 const DB_URL = `mongodb+srv://${username}:${password}@${cluster}.adsjksx.mongodb.net/?retryWrites=true&w=majority`; 
 try {
     // Connect to the MongoDB cluster
      mongoose.connect(DB_URL, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
-        dbName: encodeURIComponent(process.env.DB_NAME)
+        dbName: encodeURIComponent(process.env.DB_NAME || 'DB_TEST')
       }, () => {
         console.log('connected');
       })
