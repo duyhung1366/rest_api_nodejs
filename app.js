@@ -33,6 +33,7 @@ try {
         useUnifiedTopology: true,
         dbName: encodeURIComponent(process.env.DB_NAME)
       }, () => {
+        res.send('connected to db')
         console.log('connected');
       })
 
