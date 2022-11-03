@@ -33,8 +33,12 @@ try {
         useUnifiedTopology: true,
         dbName: encodeURIComponent(process.env.DB_NAME)
       }, () => {
-        res.send('connected to db')
         console.log('connected');
+        
+        // How to use start listening to the server 
+        app.listen(process.env.PORT || 3004, () => {
+          console.log('server ready');
+        });
       })
 
 
@@ -42,7 +46,3 @@ try {
     console.log("could not connect");
   }
 
-// How to use start listening to the server 
-app.listen(process.env.PORT || 5000, () => {
-
-});
