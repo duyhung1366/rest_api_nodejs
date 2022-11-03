@@ -25,6 +25,7 @@ const username = encodeURIComponent(process.env.DB_USER || 'duyhung');
 const password = encodeURIComponent(process.env.DB_PASSWORD || 'hung6789');
 const cluster = encodeURIComponent(process.env.CLUSTER || 'duyhungclu'); 
 const DB_URL = `mongodb+srv://${username}:${password}@${cluster}.adsjksx.mongodb.net/?retryWrites=true&w=majority`; 
+console.log(DB_URL);
 try {
     // Connect to the MongoDB cluster
      mongoose.connect(DB_URL, {
@@ -41,4 +42,6 @@ try {
   }
 
 // How to use start listening to the server 
-app.listen(process.env.PORT);
+app.listen(process.env.PORT, () => {
+  
+});
