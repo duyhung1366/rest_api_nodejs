@@ -4,12 +4,13 @@ const Post = require('../models/Post');
 
 // GET back all the posts 
 router.get('/', async (req, res) => { 
-    try {
-        const listPosts = await Post.find({});
-        res.json(listPosts);
-    } catch (error) {
-        res.json('loi')
-    }
+    // try {
+    //     const listPosts = await Post.find({});
+    //     res.json(listPosts);
+    // } catch (error) {
+    //     res.json('loi')
+    // }
+    res.json('hello world!!')
 })
 
 // submits a post
