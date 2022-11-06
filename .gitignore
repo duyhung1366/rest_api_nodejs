@@ -1,5 +1,5 @@
 /node_modules
 
 # env files
-.env.development
-.env
+# .env.development
+# .env

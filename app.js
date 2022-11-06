@@ -1,6 +1,6 @@
 const express = require('express'); 
 const app = express() ; 
-const mongoose = require('mongoose');
+const {mongoose} = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors')
 require('dotenv/config');
@@ -17,7 +17,7 @@ app.use('/posts', postsRoute);
 
 // Routes
 app.get('/', (req, res) => { 
-    res.send('hello home');
+    res.send(`db-url : ${DB_URL}`);
 })
 
 // connect to DB
