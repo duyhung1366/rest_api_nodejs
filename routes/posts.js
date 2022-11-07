@@ -57,15 +57,16 @@ router.delete('/:postId', async (req, res) => {
 });
 
 // update a post 
-router.patch('/:postId' , (req, res) => {
-    console.log(req.body.title);
+router.post('/update/:postId' , async (req, res) => {
+    const title =  req.body.title
+    const id = req.params.postId
     try {
-        const updatePost = Post.where({_id: req.params.postId}).update(
-            {title : req.body.title}
-        )
-        res.json(updatePost)
+        const updatePost = await Post.findOneAndUpdate({_id : id}, {
+            title, 
+        })
+        res.json('cap nhat thanh cong')
     } catch (error) {
-        res.json({message : error})
+        res.json('cap nhat khong thanh cong')
     }
 })
 

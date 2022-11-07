@@ -29,31 +29,29 @@ app.get('/', (req, res) => {
 })
 
 // connect to DB
-// const username = encodeURIComponent(process.env.DB_USER);
-// const password = encodeURIComponent(process.env.DB_PASSWORD);
-// const cluster = encodeURIComponent(process.env.CLUSTER); 
-// const DB_URL = `mongodb+srv://${username}:${password}@${cluster}.adsjksx.mongodb.net/?retryWrites=true&w=majority`; 
-// console.log(DB_URL);
+const username = encodeURIComponent(process.env.DB_USER);
+const password = encodeURIComponent(process.env.DB_PASSWORD);
+const cluster = encodeURIComponent(process.env.CLUSTER); 
+const DB_NAME = encodeURIComponent(process.env.DB_NAME); 
+const DB_URL = `mongodb+srv://${username}:${password}@${cluster}.eyz9i9y.mongodb.net/?retryWrites=true&w=majority`; 
+console.log(DB_URL);
 
-const {
-  DB_HOST = '127.0.0.1',
-  DB_PORT = '27017',
-  DB_USER = '',
-  DB_PWD = '',
-  DB_NAME
-} = process.env;
+// const {
+//   DB_HOST = '127.0.0.1',
+//   DB_PORT = '27017',
+//   DB_USER = '',
+//   DB_PWD = '',
+//   DB_NAME
+// } = process.env;
 
-const DB_URL = `mongodb://${DB_HOST}:${DB_PORT}`;
+// const DB_URL = `mongodb://${DB_HOST}:${DB_PORT}`;
 
 try {
     // Connect to the MongoDB cluster
      mongoose.connect(DB_URL, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
         dbName: DB_NAME,
-        auth: {
-            username: DB_USER,
-            password: DB_PWD,
-        },
-        authSource: DB_NAME,
       }, () => {
         console.log('connected');
         
